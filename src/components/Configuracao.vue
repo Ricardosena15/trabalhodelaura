@@ -6,14 +6,12 @@
 
     <div class="card">
 
-      <div class="topo">
-        <div class="avatar">
-          {{ inicial }}
-        </div>
-
-        <h1>Bem-vindo</h1>
-        <p>Digite seu nome para começar o quiz</p>
+      <div class="avatar">
+        <img src="@/assets/avatar.jpg" alt="Avatar" />
       </div>
+
+      <h1>Bem-vindo</h1>
+      <p>Digite seu nome para começar o quiz</p>
 
       <div class="campo">
         <input
@@ -31,7 +29,7 @@
         :disabled="!nome"
         @click="salvar"
       >
-         Começar
+        Começar
       </button>
 
       <button class="btn-back" @click="$router.push('/')">
@@ -48,7 +46,8 @@ export default {
   data() {
     return {
       nome: "",
-      nomeDigitado: false
+      nomeDigitado: false,
+      temFoto: true
     }
   },
 
@@ -259,5 +258,21 @@ small {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.avatar {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(124,58,237,0.6);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>

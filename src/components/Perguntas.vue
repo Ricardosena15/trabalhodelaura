@@ -45,37 +45,43 @@ export default {
       nome: "",
 
       perguntas: [
-        {
-          texto: "Uma PA tem primeiro termo igual a 3 e razão igual a 5. Qual é o 6º termo?",
-          opcoes: ["A) 23", "B) 25", "C) 28", "D) 30"],
-          correta: 2
-        },
-        {
-          texto: "A soma dos 5 primeiros termos de uma PA é 60. Sabendo que o primeiro termo é 4, qual é a razão?",
-          opcoes: ["A) 2", "B) 4", "C) 6", "D) 8"],
-          correta: 1
-        },
-        {
-          texto: "Dada a função f(x) = 2x + 3, qual é o valor de f(4)?",
-          opcoes: ["A) 8", "B) 10", "C) 11", "D) 13"],
-          correta: 2
-        },
-        {
-          texto: "Uma função afim tem gráfico crescente e passa pelos pontos (0,2) e (2,6). Qual é a lei da função?",
-          opcoes: ["A) F(X) = X + 2", "B) F(X) = 2X + 2", "C) F(X) = 3X + 2", "D) F(X) = 4X + 2"],
-          correta: 1
-        },
-        {
-          texto: "Uma sequência segue a lei f(x) = 3x + 1, onde x ∈ N. Essa sequência é uma PA. Qual é a razão dessa PA?",
-          opcoes: ["A) 1", "B) 2", "C) 3", "D) 4"],
-          correta: 2
-        },
-        {
-          texto: "Uma função afim f(x) = ax + b satisfaz as condições: f(2) = 7 e f(4) = 11. Qual é a expressão dessa função?",
-          opcoes: ["A) f(x) = 2x + 3", "B) f(x) = x + 5", "C) f(x) = 3x + 1", "D) f(x) = 2x + 1"],
-          correta: 0
-        }
-      ]
+  {
+    texto: "Uma PA tem primeiro termo igual a 3 e razão igual a 5. Qual é o 6º termo?",
+    opcoes: ["A) 23", "B) 25", "C) 28", "D) 30"],
+    correta: 2,
+    explicacao: "Fórmula: aₙ = a₁ + (n-1)·r → a₆ = 3 + (6-1)·5 = 3 + 25 = 28"
+  },
+  {
+    texto: "A soma dos 5 primeiros termos de uma PA é 60. Sabendo que o primeiro termo é 4, qual é a razão?",
+    opcoes: ["A) 2", "B) 4", "C) 6", "D) 8"],
+    correta: 1,
+    explicacao: "Sₙ = n(a₁ + aₙ)/2 → 60 = 5(4 + a₅)/2 → 60 = (5/2)(4 + a₅). Resolvendo, encontramos a₅ = 20. Agora: a₅ = a₁ + 4r → 20 = 4 + 4r → r = 4"
+  },
+  {
+    texto: "Dada a função f(x) = 2x + 3, qual é o valor de f(4)?",
+    opcoes: ["A) 8", "B) 10", "C) 11", "D) 13"],
+    correta: 2,
+    explicacao: "Substituindo: f(4) = 2·4 + 3 = 8 + 3 = 11"
+  },
+  {
+    texto: "Uma função afim tem gráfico crescente e passa pelos pontos (0,2) e (2,6). Qual é a lei da função?",
+    opcoes: ["A) F(X) = X + 2", "B) F(X) = 2X + 2", "C) F(X) = 3X + 2", "D) F(X) = 4X + 2"],
+    correta: 1,
+    explicacao: "Coeficiente angular: a = (6 - 2)/(2 - 0) = 4/2 = 2. Como passa por (0,2), então b = 2. Logo: f(x) = 2x + 2"
+  },
+  {
+    texto: "Uma sequência segue a lei f(x) = 3x + 1, onde x ∈ N. Essa sequência é uma PA. Qual é a razão dessa PA?",
+    opcoes: ["A) 1", "B) 2", "C) 3", "D) 4"],
+    correta: 2,
+    explicacao: "A razão de uma PA é a diferença entre termos consecutivos. f(x+1) - f(x) = [3(x+1)+1] - (3x+1) = 3. Logo, a razão é 3"
+  },
+  {
+    texto: "Uma função afim f(x) = ax + b satisfaz as condições: f(2) = 7 e f(4) = 11. Qual é a expressão dessa função?",
+    opcoes: ["A) f(x) = 2x + 3", "B) f(x) = x + 5", "C) f(x) = 3x + 1", "D) f(x) = 2x + 1"],
+    correta: 0,
+    explicacao: "Sistema: 2a + b = 7 e 4a + b = 11. Subtraindo: (4a+b)-(2a+b)=11-7 → 2a=4 → a=2. Substituindo: 2·2 + b = 7 → b=3. Logo: f(x)=2x+3"
+  }
+]
     }
   },
 
@@ -90,26 +96,36 @@ export default {
       this.respostaSelecionada = i
 
       if (i === correta) {
-        this.pontos++
+  this.pontos++
 
-        Swal.fire({
-          icon: 'success',
-          title: 'Acertou!',
-          timer: 800,
-          showConfirmButton: false
-        })
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Errou!',
-          timer: 800,
-          showConfirmButton: false
-        })
-      }
+  Swal.fire({
+    icon: 'success',
+    title: 'Acertou!',
+    timer: 800,
+    showConfirmButton: false
+  }).then(() => {
+    this.proxima()
+  })
+
+} else {
+  Swal.fire({
+    icon: 'error',
+    title: 'Errou!',
+    html: `
+      <p><strong>Resposta correta:</strong> ${this.perguntas[this.index].opcoes[correta]}</p>
+      <div style="margin-top:10px; padding:10px; background:#0f172a; border-radius:8px;">
+        ${this.perguntas[this.index].explicacao}
+      </div>
+    `,
+    confirmButtonText: 'Próxima'
+  }).then(() => {
+    this.proxima()
+  })
+}
 
       setTimeout(() => {
         this.proxima()
-      }, 800)
+      })
     },
 
     proxima() {
