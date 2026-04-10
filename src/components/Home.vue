@@ -57,19 +57,6 @@ export default {
   padding: 20px;
 }
 
-/* AVATAR */
-.avatar img {
-  width: 110px;
-  border-radius: 50%;
-  border: 4px solid #a855f7;
-  box-shadow: 0 0 30px rgba(168,85,247,0.8);
-  transition: 0.3s;
-}
-
-.avatar img:hover {
-  transform: scale(1.08);
-}
-
 /* TÍTULO */
 .title {
   font-size: 2.8rem;
@@ -183,14 +170,6 @@ export default {
   100% { transform: scale(1); }
 }
 
-.avatar img {
-  width: 110px;
-  border-radius: 50%;
-  border: 4px solid #a855f7;
-  box-shadow: 0 0 30px rgba(168,85,247,0.8);
-  transition: 0.3s;
-  animation: glow 2s ease-in-out infinite alternate;
-}
 
 @keyframes glow {
   from {
