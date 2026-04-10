@@ -123,11 +123,6 @@ export default {
   })
 }
 
-      setTimeout(() => {
-        this.proxima()
-      })
-    },
-
     proxima() {
       this.respostaSelecionada = null
 
