@@ -6,7 +6,9 @@
 
     <div class="card">
 
-      <img src="https://i.pravatar.cc/150" />
+      <div class="avatar">
+      <img :src="avatar" />
+      </div>
 
       <h1>Bem-vindo</h1>
       <p>Digite seu nome para começar o quiz</p>
@@ -40,12 +42,14 @@
 </template>
 
 <script>
+  import avatar from "@/assets/avatar.jpg"
 export default {
   data() {
     return {
       nome: "",
       nomeDigitado: false,
-      temFoto: true
+      temFoto: true,
+      avatar
     }
   },
 
@@ -255,6 +259,51 @@ small {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+  .avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 3px;
+
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.6);
+  transition: 0.3s ease;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efeito hover 🔥 */
+.avatar:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.9);
+}
+  .avatar {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
   }
 }
 </style>
