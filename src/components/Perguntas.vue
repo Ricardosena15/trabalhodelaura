@@ -10,12 +10,12 @@
       </div>
 
       <div class="pergunta">
-        {{ perguntas[index].texto }}
+        {{ perguntas[index]?.texto }}
       </div>
 
       <div class="opcoes">
         <button
-          v-for="(op, i) in perguntas[index].opcoes"
+          v-for="(op, i) in perguntas[index]?.opcoes"
           :key="i"
           class="opcao"
           :class="respostaSelecionada === i ? 'selecionada' : ''"
