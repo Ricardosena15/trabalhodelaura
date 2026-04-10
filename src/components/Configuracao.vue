@@ -36,14 +36,11 @@
 </template>
 
 <script>
-  import avatar from "@/assets/avatar.jpg"
 export default {
   data() {
     return {
       nome: "",
-      nomeDigitado: false,
-      temFoto: true,
-      avatar
+      nomeDigitado: false
     }
   },
 
