@@ -6,8 +6,6 @@
 
     <div class="card">
 
-      <img src="https://i.pravatar.cc/150" />
-
       <h1>Bem-vindo</h1>
       <p>Digite seu nome para começar o quiz</p>
 
