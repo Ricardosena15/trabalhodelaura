@@ -103,8 +103,6 @@ export default {
     title: 'Acertou!',
     timer: 800,
     showConfirmButton: false
-  }).then(() => {
-    this.proxima()
   })
 
 } else {
