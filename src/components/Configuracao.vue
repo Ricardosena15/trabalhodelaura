@@ -4,9 +4,9 @@
     <div class="bg-glow"></div>
     <div class="bg-glow2"></div>
 
-     <div class="avatar">
-        <img src="@/assets/avatar.jpg" alt="Avatar" />
-      </div>
+    <div class="card">
+
+      <img src="https://i.pravatar.cc/150" />
 
       <h1>Bem-vindo</h1>
       <p>Digite seu nome para começar o quiz</p>
@@ -44,7 +44,8 @@ export default {
   data() {
     return {
       nome: "",
-      nomeDigitado: false
+      nomeDigitado: false,
+      temFoto: true
     }
   },
 
@@ -255,22 +256,5 @@ small {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-  .avatar {
-  width: 85px;
-  height: 85px;
-  border-radius: 50%;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 30px rgba(124,58,237,0.6);
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 </style>
