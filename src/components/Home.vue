@@ -8,10 +8,6 @@
     </span>
   </div>
 
-  <div class="avatar">
-    <img src="https://i.pravatar.cc/100" alt="">
-  </div>
-
   <h1 class="title">Quiz <span>Álgebra</span></h1>
 
   <p class="subtitle">
